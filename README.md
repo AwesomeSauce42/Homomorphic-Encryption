@@ -73,7 +73,8 @@ This code takes in 2 integer messages form the users and encrypts them, and also
     7. At this point, the pair (`e`, `n`) is the public key and the private key (`d`, `n`) is the private key.
   
   ### The code i have written (RSA_Algo.py):
- -Creatse a private and public keys.
+- Uses Gen_prime.py to generate prime numbers.
+- Creatse a private and public keys.
 - Messages Encryption.
 - Messages Decrypted.
 - Shows Homomorphic Properties.
