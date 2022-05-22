@@ -1,8 +1,8 @@
 # Homomorphic Encryption
 Homomorphic encryption is a form of encryption that permits users to perform computations on its encrypted data without first decrypting it.
 ### In this project, I have used the following three methods:
-    1.Partially Homomorphic Encryption Algorithm called Paillier's Cryptosystem Algorithm.
-    2.Brakerski/Fan-Vercauteren Scheme (BFV) 
+    1. Partially Homomorphic Encryption Algorithm called Paillier's Cryptosystem Algorithm.
+    2 .Brakerski/Fan-Vercauteren Scheme (BFV) 
     3. RSA Algorithm
 
 ## Pallier's Cryptosystem
@@ -72,7 +72,7 @@ This code takes in 2 integer messages form the users and encrypts them, and also
     6. Find `d` using the formula ` 𝑑⋅𝑒 ≡ 1 mod 𝜑(𝑛) `.
     7. At this point, the pair (`e`, `n`) is the public key and the private key (`d`, `n`) is the private key.
   
-  ### The code i have written (RSA_Algo.py):
+  ### The code I have written (RSA_Algo.py):
 - Uses Gen_prime.py to generate prime numbers.
 - Creatse a private and public keys.
 - Messages Encryption.
