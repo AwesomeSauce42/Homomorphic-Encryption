@@ -1,10 +1,10 @@
 # Homomorphic Encryption
 Homomorphic encryption is a form of encryption that permits users to perform computations on its encrypted data without first decrypting it.
-###In this project, I have used the following two methods:
+### In this project, I have used the following two methods:
     1.Partially Homomorphic Encryption Algorithm called Paillier's Cryptosystem Algorithm.
     2.Brakerski/Fan-Vercauteren Scheme (BFV) 
 
-##Pallier's Cryptosystem
+## Pallier's Cryptosystem
 It works as following:
 
 ## Public key encryption scheme
@@ -49,7 +49,7 @@ math, random, sys, gympy2, time, Crypto.Util.number, numpy
 
 
 
-####The Workings or BFV Scheme are inside the BFV_FHE directory
+#### The Workings or BFV Scheme are inside the BFV_FHE directory
 
 
 
