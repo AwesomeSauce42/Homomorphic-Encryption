@@ -1,6 +1,11 @@
 # Homomorphic Encryption
 Homomorphic encryption is a form of encryption that permits users to perform computations on its encrypted data without first decrypting it.
-In this project, I have used a Partially Homomorphic Encryption Algorithm called Paillier's Cryptosystem Algorithm. It works as following:
+###In this project, I have used the following two methods:
+    1.Partially Homomorphic Encryption Algorithm called Paillier's Cryptosystem Algorithm.
+    2.Brakerski/Fan-Vercauteren Scheme (BFV) 
+
+##Pallier's Cryptosystem
+It works as following:
 
 ## Public key encryption scheme
 ### The basic public key encryption scheme has three stages:
@@ -41,6 +46,10 @@ _______________________________
 
 To implement this code in Python, We need the following modules:
 math, random, sys, gympy2, time, Crypto.Util.number, numpy
+
+
+
+####The Workings or BFV Scheme are inside the BFV_FHE directory
 
 
 
