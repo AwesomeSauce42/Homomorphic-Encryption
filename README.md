@@ -7,18 +7,18 @@ Homomorphic encryption is a form of encryption that permits users to perform com
 ## Pallier's Cryptosystem
 It works as following:
 
-## Public key encryption scheme
-### The basic public key encryption scheme has three stages:
+### Public key encryption scheme
+#### The basic public key encryption scheme has three stages:
     1. Generate a public-private key pair
     2. Encrypt a number
     3. Decrypt a number
 
-## Helper functions:
+### Helper functions:
     1. gcd(a,b) outputs the greatest common divisor of a and b.
     2. lcm(a,b) outputs the least common multiple of a and b.
 
-## Key generation
-### Key generation works as follows:
+### Key generation
+#### Key generation works as follows:
     1. Pick two large prime numbers p and q, randomly and independently. Confirm that gcd(pq,(p−1)(q−1)) is 1. If not, start again.
     2. Compute n=pq.
     3. Define function L(x)=x−1n.
@@ -28,17 +28,17 @@ It works as following:
     7. The public key is (n,g). Use this for encryption.
     8.The private key is λ. Use this for decryption.
 
-## Encryption
-### Encryption can work for any m in the range 0≤m<n:
+### Encryption
+#### Encryption can work for any m in the range 0≤m<n:
     1. Pick a random number r in the range 0<r<n.
     2. Compute ciphertext c=gm⋅rnmodn2.
     
-## Decryption
-### Decryption presupposes a ciphertext created by the above encryption process, so that c is in the range 0<c<n2:
+### Decryption
+#### Decryption presupposes a ciphertext created by the above encryption process, so that c is in the range 0<c<n2:
     1. Compute the plaintext m=L(cλmodn2)⋅μmodn. 
 (Reminder: we can always recalculate μ from λ and the public key).
 
-### This scheme allows two types of computation:
+#### This scheme allows two types of computation:
     1. Addition of two ciphertexts
     2. Multiplication of a ciphertext by a plaintext number
 
@@ -49,7 +49,7 @@ math, random, sys, gympy2, time, Crypto.Util.number, numpy
 
 
 
-#### The Workings or BFV Scheme are inside the BFV_FHE directory
+##### The Workings or BFV Scheme are inside the BFV_FHE directory
 
 
 
