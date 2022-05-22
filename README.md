@@ -59,9 +59,9 @@ The Fan-Vercauteren (FV) scheme, (also known as the Brakerski-Fan-Vercauteren (B
 #### More info [here](https://inferati.com/blog/fhe-schemes-bfv).
 
 The main program to run is BFV_FHE.py .
-This code takes in 2 integer messages form the users and encrypts them, and also shows us the Homomorphic properties of the encrypted data (ciphertext)
+This code takes in 2 integer messages form the users and encrypts them, and also shows us the Homomorphic properties of the encrypted data (ciphertext).
 
- Rest of the files are used as modules (Downloaded from a library)
+ Rest of the files are used as modules (Downloaded from a library).
  
  __________________________________________________
 
