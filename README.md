@@ -4,6 +4,7 @@ Homomorphic encryption is a form of encryption that permits users to perform com
     1. Partially Homomorphic Encryption Algorithm called Paillier's Cryptosystem Algorithm.
     2 .Brakerski/Fan-Vercauteren Scheme (BFV) 
     3. RSA Algorithm
+__________________________________________________
 
 ## Pallier's Cryptosystem
 It works as following:
@@ -43,11 +44,11 @@ It works as following:
     1. Addition of two ciphertexts
     2. Multiplication of a ciphertext by a plaintext number
 
-_______________________________
 
 To implement this code in Python, We need the following modules:
 math, random, sys, gympy2, time, Crypto.Util.number, numpy
 
+__________________________________________________
 
 
 ## BFV SCHEME
@@ -55,12 +56,15 @@ Simple Python implementation of Brakerski/Fan-Vercauteren (BFV) homomorphic encr
 
 The Fan-Vercauteren (FV) scheme, (also known as the Brakerski-Fan-Vercauteren (BFV) scheme) is considered as one of the second generation of FHE schemes that is constructed based on the Ring-Learning with Errors (RLWE) problem [LPR13]. BFV is instantiated over two rings: 1) the plaintext ring which includes encodings of unencrypted or intelligible messages and 2) the ciphertext ring which includes encrypted messages. Similar to any other FHE scheme, BFV allows an untrusted party to induce meaningful computation over encrypted data without access to the decryption key. This is possible due to the homomorphism property which offers a map (or function) between the plaintext and ciphertext spaces that preserves the operations in these two spaces.
 
-#### More info: [Link](https://inferati.com/blog/fhe-schemes-bfv).
+#### More info [here](https://inferati.com/blog/fhe-schemes-bfv).
 
 The main program to run is BFV_FHE.py .
 This code takes in 2 integer messages form the users and encrypts them, and also shows us the Homomorphic properties of the encrypted data (ciphertext)
 
  Rest of the files are used as modules (Downloaded from a library)
+ 
+ __________________________________________________
+
  
  ## RSA Algorithm
  ### It works as the following:
@@ -71,6 +75,9 @@ This code takes in 2 integer messages form the users and encrypts them, and also
     5. Take an `e` coprime that is greater, than 1 and less than `n`.
     6. Find `d` using the formula ` 𝑑⋅𝑒 ≡ 1 mod 𝜑(𝑛) `.
     7. At this point, the pair (`e`, `n`) is the public key and the private key (`d`, `n`) is the private key.
+    
+ #### More info [here](https://en.wikipedia.org/wiki/RSA_(cryptosystem)).
+
   
   ### The code I have written (RSA_Algo.py):
 - Uses Gen_prime.py to generate prime numbers.
