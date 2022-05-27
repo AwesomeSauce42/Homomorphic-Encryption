@@ -326,7 +326,7 @@ PD = 0 # 0: generate -- 1: pre-defined
 
 if PD == 0:
     # Select one of the parameter sets below
-    t = 16;   n, q, psi = 100 , 132120577         , 73993                # log(q) = 27
+    t = 16;   n, q, psi = 1024 , 132120577         , 73993                # log(q) = 27
     # t = 256;  n, q, psi = 2048 , 137438691329      , 22157790             # log(q) = 37
     # t = 1024; n, q, psi = 4096 , 288230376135196673, 60193018759093       # log(q) = 58
 
