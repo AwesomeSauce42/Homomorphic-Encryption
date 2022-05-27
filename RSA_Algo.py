@@ -5,23 +5,15 @@ from Gen_prime import *
 from Crypto.Util import number
 
 
-'''
-Euclid's algorithm for determining the greatest common divisor
-Use iteration to make it faster for larger integers
-'''
 
-
+#Calculate GCD
 def gcd(a, b):
     while b != 0:
         a, b = b, a % b
     return a
 
 
-'''
-Euclid's extended algorithm for finding the multiplicative inverse of two numbers
-'''
-
-
+#Calculate Multiplicative inverse
 def multiplicative_inverse(e, phi):
     d = 0
     x1 = 0
@@ -47,75 +39,64 @@ def multiplicative_inverse(e, phi):
         return d + phi
 
 
-'''
-Tests to see if a number is prime.
-'''
 
 
+#Generate Public and Private keys
 def generate_key_pair(p, q):
     
-    n = p * q
-
-    #Phi is the totient of n
+    n = p*q
     phi = (p-1) * (q-1)
 
-    #Choosing an integer e such that e and phi(n) are coprime
     e = random.randrange(1, phi)
-
-    #Using Euclid's Algorithm to verify that e and phi(n) are comprime
     g = gcd(e, phi)
     while g != 1:
         e = random.randrange(1, phi)
         g = gcd(e, phi)
 
-    #Using Extended Euclid's Algorithm to generate the private key
     d = multiplicative_inverse(e, phi)
     
-    #Returning public and private keypair
     #Public key is (e, n) and private key is (d, n)
     return ((e, n), (d, n))
 
-
+#Generating ciphertext (Encryption)
 def encrypt(pk, plaintext):
-    #Unpacking the key into it's components
     key, n = pk
-    #Converting each letter in the plaintext to numbers based on the character using a^b mod m
     cipher = pow(plaintext,key,n)
-    #Returning the array of bytes
     return cipher
 
+#Generating plaintext (Decryption)
 def decrypt(pk, ciphertext):
-    #Unpacking the key into its components
     key, n = pk
-    #Generating the plaintext based on the ciphertext and key using a^b mod m
     plain = pow(ciphertext,key,n)
-    #Returning the array of bytes as a string
     return plain
 
 
 def main():
-    '''
-    Detect if the script is being run directly by the user
-    '''
-    print("===========================================================================================================")
-    print("================================== RSA Encryptor / Decrypter ==============================================")
+
+    print("====== RSA Encryptor / Decrypter ======")
     print(" ")
 
-    n_length = 4
+    while True:
+        try:
+            p = generateLargePrime(1024)
+            q = generateLargePrime(1024)
+        except TypeError: # Replace Exception with something more specific.
+            continue
+        else:
+            break
 
-    p = generateLargePrime(1024)
-    q = generateLargePrime(1024)
 
     while(p==q):
         q = generateLargePrime(1024)
+
     print(p)
-    print(q)
+    print(q)    
     
-    print(" - Generating your public / private key-pairs now . . .")
 
     public, private = generate_key_pair(p, q)
 
-    print(" - Your public key is ", public, " and your private key is ", private)
+    print(" - Public key is: ", public)
+    print(" - Private key is ", private)
 
     message1 = int(input(" - Enter a message 1 to encrypt with your public key: "))
     message2 = int(input(" - Enter a message 2 to encrypt with your public key: "))
@@ -145,8 +126,7 @@ def main():
     print(" - Product of messages is: ",message1*message2)
 
     print(" ")
-    print("============================================ END ==========================================================")
-    print("===========================================================================================================")
+    print("====== END ======")
 
 
 main()
