@@ -18,9 +18,6 @@ def gcd(a,b):
 def lcm(a, b):
     return a * b // gcd(a, b)
 
-def int_time():
-    return int(round(time() * 1000))
-
 #Created Private Key class
 class PrivateKey(object):
     def __init__(self, p, q, n):
