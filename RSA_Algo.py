@@ -78,22 +78,26 @@ def main():
 
     while True:
         try:
-            p = generateLargePrime(1024)
-            q = generateLargePrime(1024)
-        except TypeError: # Replace Exception with something more specific.
+            p = generateLargePrime(10)
+            q = generateLargePrime(10)
+        except TypeError: 
             continue
         else:
             break
 
 
     while(p==q):
-        q = generateLargePrime(1024)
+        q = generateLargePrime(10)
 
-    print(p)
-    print(q)    
+
+    n = p*q
     
 
     public, private = generate_key_pair(p, q)
+
+    print(" - P is: ",p)
+    print(" - Q is: ",q)
+    print(" - N is: ",n)
 
     print(" - Public key is: ", public)
     print(" - Private key is ", private)
@@ -101,32 +105,37 @@ def main():
     message1 = int(input(" - Enter a message 1 to encrypt with your public key: "))
     message2 = int(input(" - Enter a message 2 to encrypt with your public key: "))
 
+    actual_product = message1*message2
+
     encrypted_msg1 = encrypt(public, message1)
     encrypted_msg2 = encrypt(public, message2)
-    total = encrypted_msg1+encrypted_msg2
-    total_sum = encrypt(public, total)
-    actual_product = encrypted_msg1*encrypted_msg2
-    product = encrypt(public, actual_product)
+    encrypted_msg3 = encrypt(public, actual_product) #RHS
+
+    product = encrypted_msg1*encrypted_msg2 #LHS
+
+    decrypted_msg1 = decrypt(private, encrypted_msg1)
+    decrypted_msg2 = decrypt(private, encrypted_msg2)
+    decrypted_msg3 = decrypt(private, product)
 
     print(" - Your encrypted message 1 is: ", encrypted_msg1)
     print(" - Decrypting message with private key ", private, " . . .")
-    print(" - Your message is: ", decrypt(private, encrypted_msg1))
+    print(" - Your message is: ", decrypted_msg1)
 
     print(" - Your encrypted message 2 is: ", encrypted_msg2)
     print(" - Decrypting message with private key ", private, " . . .")
-    print(" - Your message is: ", decrypt(private, encrypted_msg2))
+    print(" - Your message is: ", decrypted_msg2)
 
-    print(" - Your encrypted message sum is: ",total_sum)
-    print(" - Your sum decryption is: ", decrypt(private, total_sum))
-    print(" - Sum of messages is: ",message1+message2)
+    print("="*50)
 
+    print(" - Your message is (decrypted from product of ciphertext): ", decrypted_msg3)
+    print(" - YOur message product is: ",message1*message2)
+    if(decrypted_msg3 == message1*message2):
+        print(" - Homomorphic Multiplication Works!")
+    
+    else:
+        print(" - Homomorphic Multiplication Doesnt Work.")
 
-    print(" - Your encrypted message product is: ",product)
-    print(" - Your product decryption is: ", decrypt(private, product))
-    print(" - Product of messages is: ",message1*message2)
-
-    print(" ")
-    print("====== END ======")
+    print("====================== END =======================")
 
 
 main()
