@@ -116,11 +116,15 @@ def main():
     decrypted_msg1 = decrypt(private, encrypted_msg1)
     decrypted_msg2 = decrypt(private, encrypted_msg2)
     decrypted_msg3 = decrypt(private, product)
-
+    
+    print("="*50)
+    
     print(" - Your encrypted message 1 is: ", encrypted_msg1)
     print(" - Decrypting message with private key ", private, " . . .")
     print(" - Your message is: ", decrypted_msg1)
-
+    
+    print("="*50)
+    
     print(" - Your encrypted message 2 is: ", encrypted_msg2)
     print(" - Decrypting message with private key ", private, " . . .")
     print(" - Your message is: ", decrypted_msg2)
