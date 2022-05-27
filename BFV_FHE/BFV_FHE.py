@@ -3,7 +3,7 @@ from helper import *
 from random import randint
 from math import log,ceil
 
-# Generate polynomial arithmetic tables
+# Generate polynomial arithmetic tables 
 w_table    = [1]*n
 wv_table   = [1]*n
 psi_table  = [1]*n
@@ -25,7 +25,7 @@ Evaluator = BFV(n, q, t, mu, sigma, qnp)
 Evaluator.SecretKeyGen()
 Evaluator.PublicKeyGen()
 Evaluator.EvalKeyGenV1(T)
-Evaluator.EvalKeyGenV2(p)
+#Evaluator.EvalKeyGenV2(p)
 
 # print system parameters
 print(Evaluator)
@@ -34,7 +34,7 @@ print(Evaluator)
 
 n1 = int(input("Enter Message 1: "))
 n2 = int(input("Enter Message 2: "))
-
+sum = n1+n1
 print("--- Random integers n1 and n2 are generated.")
 print("n1: ",n1)
 print("n2: ",n2)
@@ -80,6 +80,24 @@ if nr == ne:
     print("Homomorphic addition works.")
 else:
     print("Homomorphic addition does not work.")
+print("")
+
+# Homomorphic Subtraction
+Cipher_text = Evaluator.HomomorphicSubtraction(Cipher_text1,Cipher_text2)
+mt = Evaluator.Decryption(Cipher_text)
+nr = Evaluator.IntDecode(mt) 
+ne = (n1-n2) 
+
+print("--- Performing Homomorphic Addition: ")
+print("Cipher_text_add[0] :",Cipher_text[0])
+print("Cipher_text_add[1] :",Cipher_text[1])
+print("Decrypted    :",mt)
+print("Decoded    :",nr)
+
+if nr == ne:
+    print("Homomorphic Subtraction works.")
+else:
+    print("Homomorphic Subtraction does not work.")
 print("")
 
 
